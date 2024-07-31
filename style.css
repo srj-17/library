@@ -3,3 +3,109 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+:root {
+    --gap-user-panel: 8px; 
+    --subtle-white: #f4f3e1;
+}
+
+/* div {
+    background-color: rgba(0, 255, 255, 0.322);
+    border: 1px solid white;
+} */
+
+.container {
+    width: 100vw;
+    display: grid;
+    padding: 10px 40px;
+    gap: 30px;
+}
+
+.header {
+    justify-self: center;
+    text-align: center;
+}
+
+.header .brand {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.header .slogan {
+    font-size: 0.9rem;
+}
+
+.user-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.user-panel .title {
+    font-weight: 600;
+}
+
+.user-panel .user-profile {
+    display: grid;
+    gap: var(--gap-user-panel);
+}
+
+.user-profile > .name-container {
+    display: flex;
+    gap: 5px;
+}
+
+.quote-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.quote-container .quote {
+    align-self: center;
+}
+
+.quote-container .quotee{
+    align-self: end;
+    padding-right: 20px;
+}
+
+/* style form later */
+
+/* keep utils class cause might change later */
+.utils form{
+    display: grid;
+    gap: var(--gap-user-panel)
+}
+
+.utils fieldset {
+    border: none;
+    display: flex;
+    gap: 10px;
+}
+
+.books-dashboard {
+    background-color: var(--subtle-white);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.books-dashboard .book {
+    background-color: white;
+    border-left: 5px solid yellow;
+    padding: 20px 40px;
+
+    display: grid;
+}
+
+.book .deleteButton {
+    background-color: rgb(245, 65, 65);
+    border: 0;
+    border-radius: 5px;
+    padding: 4px 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.book .deleteButton:active {
+    background-color: rgb(177, 1, 1);
+}

@@ -8,6 +8,66 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="header">
+            <div class="brand">LibSee</div>
+            <div class="slogan">Your Library</div>
+        </div>
+        <div class="user-panel">
+            <div class="user-profile">
+                <div class="name-container profile-item">
+                    <div class="name-title title">Name: </div>
+                    <div class="name">Saugat Rijal</div>
+                </div>
+                <div class="books-read-container profile-item">
+                    <div class="books-read-title title">Books Read: </div>
+                    <div class="books-read">TODO</div>
+                </div>
+                <div class="books-unread profile-item">
+                    <div class="books-unread-title title">Books Left to Read: </div>
+                    <div class="books-unread">TODO</div>
+                </div>
+                <div class="quote-container profile-item">
+                    <div class="quote-title title">Favourite quote: </div>
+                    <div class="quote">
+                        Never miss your meals
+                    </div>
+                    <div class="quotee">
+                        -Anonymous
+                    </div>
+                </div>
+            </div>
+            <div class="utils">
+                <!-- can convert it to dialog later -->
+                <form action="/" method="post">
+                    <div>
+                        <label for="title">Title: </label>
+                        <input type="text" name="title" id="title" placeholder="Title of book">
+                    </div>
+                    <div>
+                        <label for="author">Author: </label>
+                        <input type="text" name="author" id="author" placeholder="Book author">    
+                    </div>
+                    <div>
+                        <label for="pages">Pages: </label>
+                        <input type="number" name="pages" id="pages" placeholder="No. of pages">
+                    </div>
+                    <fieldset>
+                        <legend>Have you completed reading the book?</legend>
+                        <div>
+                            <input type="radio" name="read" id="read">
+                            <label for="read"> Yes</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="read" id="not-read" checked>
+                            <label for="not-read"> No</label>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="books-dashboard">
+        </div>
+    </div>
 </body>
 </html>

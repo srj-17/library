@@ -26,8 +26,8 @@ function Book(title, author, pages, read) {
 
 function displayBooks() {
     myLibrary.forEach((book) => {
-        bookCard.classList.toggle('book');
         let bookCard = document.createElement('div');
+        bookCard.classList.toggle('book');
         
         bookInfo = book.info(); 
         bookCard.innerHTML = `<div class="title">Title: ${book.title}</div>
@@ -88,4 +88,5 @@ addBookDialogButton.addEventListener('click', (event) => {
     // TODO: clear the screen first, and then only display book (cause display books
     // iterates over each book otherwise)
     formDialog.close();
+    displayBooks();
 })

@@ -37,33 +37,39 @@
                     </div>
                 </div>
             </div>
-            <div class="utils">
-                <!-- can convert it to dialog later -->
-                <form action="/" method="post">
-                    <div>
-                        <label for="title">Title: </label>
-                        <input type="text" name="title" id="title" placeholder="Title of book">
-                    </div>
-                    <div>
-                        <label for="author">Author: </label>
-                        <input type="text" name="author" id="author" placeholder="Book author">    
-                    </div>
-                    <div>
-                        <label for="pages">Pages: </label>
-                        <input type="number" name="pages" id="pages" placeholder="No. of pages">
-                    </div>
-                    <fieldset>
-                        <legend>Have you completed reading the book?</legend>
+            <dialog class="form-dialog">
+                <div class="utils">
+                    <!-- can convert it to dialog later -->
+                    <form action="/" method="post">
                         <div>
-                            <input type="radio" name="read" id="read">
-                            <label for="read"> Yes</label>
+                            <label for="title">Title: </label>
+                            <input type="text" name="title" id="title" placeholder="Title of book">
                         </div>
                         <div>
-                            <input type="radio" name="read" id="not-read" checked>
-                            <label for="not-read"> No</label>
+                            <label for="author">Author: </label>
+                            <input type="text" name="author" id="author" placeholder="Book author">
                         </div>
-                    </fieldset>
-                </form>
+                        <div>
+                            <label for="pages">Pages: </label>
+                            <input type="number" name="pages" id="pages" placeholder="No. of pages">
+                        </div>
+                        <fieldset>
+                            <legend>Have you completed reading the book?</legend>
+                            <div>
+                                <input type="radio" name="read" id="read">
+                                <label for="read"> Yes</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="read" id="not-read" checked>
+                                <label for="not-read"> No</label>
+                            </div>
+                        </fieldset>
+                        <div class="submit-button">
+                            <button type="reset" class="cancel">Cancel</button>
+                            <button type="submit">Submit</button>
+                        </div>
+                    </form>
+            </dialog>
             </div>
         </div>
         <div class="books-dashboard">

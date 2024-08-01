@@ -1,6 +1,7 @@
 const myLibrary = [];
 const booksDashboard = document.querySelector('.books-dashboard');
 const deleteButtons = Array.from(document.querySelectorAll('.deleteButton'));
+const formDialog = document.querySelector('.form-dialog');
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -24,8 +25,8 @@ function addBook(title, author, pages, read) {
 
 function displayBooks() {
     myLibrary.forEach((book) => {
-        let bookCard = document.createElement('div');
         bookCard.classList.toggle('book');
+        let bookCard = document.createElement('div');
         
         bookInfo = book.info(); 
         bookCard.innerHTML = `<div class="title">Title: ${book.title}</div>

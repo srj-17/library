@@ -8,6 +8,7 @@ const addBookDialogButton = formDialog.querySelector('.add');
 const title = formDialog.querySelector('#title');
 const author = formDialog.querySelector('#author');
 const pages = formDialog.querySelector('#pages');
+const form = formDialog.querySelector('form');
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -78,7 +79,6 @@ cancelDialogButton.addEventListener('click', () => {
 
 addBookDialogButton.addEventListener('click', (event) => {
     event.preventDefault();
-
     // readStatus couldn't be checked at the top because by default, not-read is checked
     // and since its set to const, readStatus would be checked every time by default
     // we want to see the value of checked when button is clicked
@@ -86,6 +86,9 @@ addBookDialogButton.addEventListener('click', (event) => {
     let read = (readStatus.value === 'read') ? true : false;
     addBook(title.value, author.value, pages.value, read);
     
+    // dispatchEvent() doesn't work because it only triggers the user defined event listeners
+    // and not the default ones [security concerns]
+    form.reset();
     formDialog.close();
     displayBooks();
     // TODO: clear the form after cancel because rn, it just stays in the same state

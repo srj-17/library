@@ -2,6 +2,7 @@ const myLibrary = [];
 const booksDashboard = document.querySelector('.books-dashboard');
 const deleteButtons = Array.from(document.querySelectorAll('.deleteButton'));
 const formDialog = document.querySelector('.form-dialog');
+const newBookButton = document.querySelector('.new-book'); 
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -16,11 +17,6 @@ function Book(title, author, pages, read) {
             read: this.read,
         };
     }
-};
-
-function addBook(title, author, pages, read) {
-    let newBook = new Book(title, author, pages, read);
-    myLibrary.push(newBook);
 };
 
 function displayBooks() {
@@ -47,12 +43,23 @@ function displayBooks() {
     });
 };
 
+// add book
+function addBook(title, author, pages, read) {
+    let newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook);
+};
+
+// delete book
 function deleteBook(event) {
     if (event.target in deleteButtons) {
-        
+        // TODO
     }
 }
 
 booksDashboard.addEventListener('click', (e) => {
     deleteBook(e);
 });
+
+newBookButton.addEventListener('click', () => {
+    formDialog.showModal();
+})

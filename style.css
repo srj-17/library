@@ -9,10 +9,10 @@
     --subtle-white: #f4f3e1;
 }
 
-/* div {
+div {
     background-color: rgba(0, 255, 255, 0.322);
     border: 1px solid white;
-} */
+}
 
 .container {
     width: 100vw;
@@ -61,6 +61,7 @@
 
 .quote-container .quote {
     align-self: center;
+    font-size: 2rem;
 }
 
 .quote-container .quotee{
@@ -68,11 +69,14 @@
     padding-right: 20px;
 }
 
-/* style form later */
+/* dialog *needs* an auto margin to be centered by default, but we've set it to 0 at the top */
+dialog {
+    margin: auto;
+}
 
 /* keep utils class cause might change later */
 .utils form{
-    display: grid;
+    /* display: grid; */
     gap: var(--gap-user-panel)
 }
 

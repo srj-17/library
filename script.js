@@ -3,6 +3,11 @@ const booksDashboard = document.querySelector('.books-dashboard');
 const deleteButtons = Array.from(document.querySelectorAll('.deleteButton'));
 const formDialog = document.querySelector('.form-dialog');
 const newBookButton = document.querySelector('.new-book'); 
+const cancelDialogButton = formDialog.querySelector('.cancel'); 
+const addBookDialogButton = formDialog.querySelector('.add');
+const title = formDialog.querySelector('#title');
+const author = formDialog.querySelector('#author');
+const pages = formDialog.querySelector('#pages');
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -60,6 +65,27 @@ booksDashboard.addEventListener('click', (e) => {
     deleteBook(e);
 });
 
+// dialog
 newBookButton.addEventListener('click', () => {
     formDialog.showModal();
+});
+
+cancelDialogButton.addEventListener('click', () => {
+    formDialog.close()
+});
+
+addBookDialogButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    // readStatus couldn't be checked at the top because by default, not-read is checked
+    // and since its set to const, readStatus would be checked every time by default
+    // we want to see the value of checked when button is clicked
+    let readStatus = formDialog.querySelector('.read-status :checked');
+    let read = (readStatus.value === 'read') ? true : false;
+    console.log(readStatus.value)
+    addBook(title.value, author.value, pages.value, read);
+    
+    // TODO: clear the screen first, and then only display book (cause display books
+    // iterates over each book otherwise)
+    formDialog.close();
 })

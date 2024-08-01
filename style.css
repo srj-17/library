@@ -9,10 +9,11 @@
     --subtle-white: #f4f3e1;
 }
 
-div {
+/* temporary */
+/* div {
     background-color: rgba(0, 255, 255, 0.322);
     border: 1px solid white;
-}
+} */
 
 .container {
     width: 100vw;
@@ -70,9 +71,11 @@ div {
 }
 
 /* dialog *needs* an auto margin to be centered by default, but we've set it to 0 at the top */
-dialog {
+.form-dialog {
     margin: auto;
 }
+
+.form-dialog .dialog-buttons {}
 
 /* keep utils class cause might change later */
 .utils form{

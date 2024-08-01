@@ -26,6 +26,8 @@ function Book(title, author, pages, read) {
 
 function displayBooks() {
     myLibrary.forEach((book) => {
+        // clear the screen first, because previous books are also displaying and this function
+        // rn adds on top of those books (redundancy) 
         let bookCard = document.createElement('div');
         bookCard.classList.toggle('book');
         
@@ -82,11 +84,9 @@ addBookDialogButton.addEventListener('click', (event) => {
     // we want to see the value of checked when button is clicked
     let readStatus = formDialog.querySelector('.read-status :checked');
     let read = (readStatus.value === 'read') ? true : false;
-    console.log(readStatus.value)
     addBook(title.value, author.value, pages.value, read);
     
-    // TODO: clear the screen first, and then only display book (cause display books
-    // iterates over each book otherwise)
     formDialog.close();
     displayBooks();
+    // TODO: clear the form after cancel because rn, it just stays in the same state
 })

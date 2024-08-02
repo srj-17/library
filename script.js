@@ -36,18 +36,16 @@ function addBook(title, author, pages, read) {
 function deleteBook(index) {
     if (+ index > -1) {
         // remove the book from the library array
-        console.log(index);
         myLibrary.splice(index, 1); 
         // container.removeChild(booksDashboard);
 
         // display the remaining elements in the array to the booksDashboard
-        console.log(myLibrary);
         displayBooks()
     }
 }
 
 // clear the dashboard
-function clearLibrary() {
+function clearBookDashboard() {
     let bookCards = Array.from(document.querySelectorAll('.book'));
     bookCards.forEach(book => {
         booksDashboard.removeChild(book);
@@ -57,7 +55,7 @@ function clearLibrary() {
 function displayBooks() {
     // clear the screen first, because previous books are also displaying and this function
     // replace the book dashboard with an empty dashboard
-    clearLibrary();
+    clearBookDashboard();
 
     myLibrary.forEach((book) => {
         // rn adds on top of those books (redundancy) 

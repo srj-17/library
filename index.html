@@ -43,15 +43,14 @@
                     "I'll take a potato chip, and eat it."
                 </div>
                 <div class="quotee">
-                    -Light Yagami
+                    - Light Yagami
                 </div>
             </div>
             <dialog class="form-dialog">
                 <div class="utils">
-                    <!-- can convert it to dialog later -->
                     <form class="add-book-form" action="/" method="post">
                         <div class="input-field">
-                            <!-- form will be submitted anyways because of preventDefault in js file  -->
+                            <!-- Required, but form will always be submitted because of preventDefault in js file  -->
                             <label class="input-label" for="title">Title: <span aria-label="required">*</span></label>
                             <input type="text" name="title" id="title" placeholder="Title of book" autofocus required>
                         </div>

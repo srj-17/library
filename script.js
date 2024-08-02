@@ -1,6 +1,5 @@
 const myLibrary = [];
 const container = document.querySelector('.container');
-// container and deleteButtons changes later
 const booksDashboard = document.querySelector('.books-dashboard');
 const formDialog = document.querySelector('.form-dialog');
 const newBookButton = document.querySelector('.new-book'); 
@@ -33,18 +32,15 @@ Book.prototype.markRead = function () {
     this.read = true;
 }
 
-// add book
 function addBook(title, author, pages, read) {
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
 };
 
-// delete book
 function deleteBook(index) {
     if (+ index > -1) {
         // remove the book from the library array
         myLibrary.splice(index, 1); 
-        // container.removeChild(booksDashboard);
 
         // display the remaining elements in the array to the booksDashboard
         displayBooks()
@@ -62,6 +58,7 @@ function readBook(index) {
 }
 
 // update books read (each time the displayBooks() is triggered)
+// for information in the User Profile section
 function updateBooksRead() {
     let alreadyRead = myLibrary.filter((book) => book.read);
     alreadyRead = alreadyRead.map((book) => book.title);
@@ -74,7 +71,7 @@ function updateBooksRead() {
     }
 }
 
-// update books read (each time the displayBooks() is triggered)
+// update books unread (each time the displayBooks() is triggered)
 function updateBooksUnRead() {
     let unRead = myLibrary.filter((book) => !book.read);
     unRead = unRead.map((book) => book.title);
@@ -94,12 +91,11 @@ function clearBookDashboard() {
 }
 
 function displayBooks() {
-    // clear the screen first, because previous books are also displaying and this function
-    // replace the book dashboard with an empty dashboard
+    // clear the screen first, because previous books are also displaying
+    // this function replaces the book dashboard with an empty dashboard
     clearBookDashboard();
 
     myLibrary.forEach((book) => {
-        // rn adds on top of those books (redundancy) 
         let bookCard = document.createElement('div');
         bookCard.classList.toggle('book');
         
@@ -123,18 +119,18 @@ function displayBooks() {
         
         booksDashboard.appendChild(bookCard);
 
-        // button container for add and delete
+        // button container for add and delete whose id = index of the book
         buttonContainer = document.createElement('div');
         buttonContainer.classList.toggle('card-buttons');
         buttonContainer.setAttribute('id', `${myLibrary.indexOf(book)}`);
         
-        // add a delete button to each book whose id = the index of book
+        // add a delete button to each book 
         let deleteButton = document.createElement('button');
         deleteButton.classList.toggle('deleteButton');
         deleteButton.textContent = 'Delete Book';
         buttonContainer.appendChild(deleteButton);
 
-        // add a read button to each book whose id = the index of book
+        // add a read button to each book
         let readButton = document.createElement('button');
         readButton.classList.toggle('readButton');
         readButton.textContent = 'Mark Read';
@@ -170,7 +166,8 @@ cancelDialogButton.addEventListener('click', () => {
 addBookDialogButton.addEventListener('click', (event) => {
     event.preventDefault();
     // readStatus couldn't be checked at the top because by default, not-read is checked
-    // and since its set to const, readStatus would be checked every time by default
+    // and since its set to const and contains :checked pseudo class, 
+    // readStatus would be checked every time by default
     // we want to see the value of checked when button is clicked
     let readStatus = formDialog.querySelector('.read-status :checked');
     let read = (readStatus.value === 'read') ? true : false;

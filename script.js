@@ -29,6 +29,10 @@ Book.prototype.info = function() {
     };
 }
 
+Book.prototype.markRead = function () {
+    this.read = true;
+}
+
 // add book
 function addBook(title, author, pages, read) {
     let newBook = new Book(title, author, pages, read);
@@ -51,7 +55,7 @@ function deleteBook(index) {
 function readBook(index) {
     if (+ index > -1) {
         let book = myLibrary.at(index);
-        book.read = true;
+        book.markRead();
 
         displayBooks();
     }

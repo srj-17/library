@@ -120,7 +120,7 @@ function displayBooks() {
 
         // button container for add and delete
         buttonContainer = document.createElement('div');
-        buttonContainer.classList.toggle('delete');
+        buttonContainer.classList.toggle('card-buttons');
         buttonContainer.setAttribute('id', `${myLibrary.indexOf(book)}`);
         
         // add a delete button to each book whose id = the index of book
@@ -128,11 +128,10 @@ function displayBooks() {
         deleteButton.classList.toggle('deleteButton');
         deleteButton.textContent = 'Delete Book';
         buttonContainer.appendChild(deleteButton);
-        bookCard.appendChild(buttonContainer);
 
         // add a read button to each book whose id = the index of book
         let readButton = document.createElement('button');
-        readButton.setAttribute('id', `${myLibrary.indexOf(book)}`);
+        readButton.classList.toggle('readButton');
         readButton.textContent = 'Mark Read';
         buttonContainer.appendChild(readButton);
         

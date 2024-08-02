@@ -85,7 +85,8 @@ body {
 }
 
 .user-profile .user-profile-header,
-.quote-container .quote-title {
+.quote-container .quote-title,
+.books-dashboard-container .books-dashboard-title {
     font-size: 1.5rem;
     border-bottom: 2px solid var(--secondary);
 }
@@ -244,14 +245,19 @@ input[type="radio"]:checked::before {
     gap: 10px;
 }
 
-.books-dashboard {
+.books-dashboard-container {
     background-color: var(--cards-bg);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 20px;
     padding: var(--cards-padding);
     border-radius: 10px;
     box-shadow: var(--cards-shadow);
+}
+
+.books-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+
+    padding-top: 8px;
 }
 
 .books-dashboard .book {
@@ -274,13 +280,36 @@ input[type="radio"]:checked::before {
     font-weight: bold;
 }
 
-.book .deleteButton {
-    background-color: rgb(245, 65, 65);
+.book .card-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.button-container > * {
+    flex: 0;
+    font-size: 20px;
+}
+
+.card-buttons > * {
     border: 0;
     border-radius: 5px;
+    width: 120px;
     padding: 4px 20px;
     font-weight: bold;
     color: white;
+    font-size: 0.9rem;
+}
+
+.card-buttons .deleteButton {
+    background-color: rgb(210, 61, 61);
+}
+
+.card-buttons .readButton {
+    background-color: #3c9473;
+}
+
+.card-buttons .readButton:active {
+    background-color: #214f3e;
 }
 
 .book .deleteButton:active {

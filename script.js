@@ -99,10 +99,22 @@ function displayBooks() {
         bookCard.classList.toggle('book');
         
         bookInfo = book.info(); 
-        bookCard.innerHTML = `<div class="title">Title: ${book.title}</div>
-                            <div class="author">Author: ${book.author}</div>
-                            <div class="pages">Pages: ${book.title}</div>
-                            <div class="read">Read: ${book.read ? 'read' : 'not read'} </div>`;
+        bookCard.innerHTML = `<div class="title-container card-info-container">
+                                <div class="card-label"> Title: </div>
+                                <div class="title"> ${book.title} </div>
+                              </div>
+                              <div class="author-container card-info-container">
+                                <div class="card-label"> Author: </div>
+                                <div class="author"> ${book.author} </div>
+                              </div>
+                              <div class="pages-container card-info-container">
+                                <div class="card-label"> Pages: </div>
+                                <div class="pages"> ${book.pages} </div>
+                              </div>
+                              <div class="read-container card-info-container">
+                                <div class="card-label"> Read: </div>
+                                <div class="read"> ${book.read ? "Read" : "Unread"} </div>
+                              </div>`;
         
         booksDashboard.appendChild(bookCard);
 

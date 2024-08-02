@@ -20,7 +20,9 @@
     --user-panel-bg: #2E4050;
     --button-active-color: #7aaae9;
     --cards-shadow: 2px 2px 3px rgba(255, 255, 255, 0.679);
-    --cards-bg: #04131F;
+    --cards-bg: #2E4050;
+    --cards-padding: 15px 20px;
+    --cards-border-radius: 10px; 
 }
 
 body {
@@ -31,6 +33,10 @@ body {
 .container {
     width: 100vw;
     display: grid;
+    /* just wanted to do this for the sake of giving dashboard some sort of color 
+        even before the books, but couldn't. oh well */
+    /* grid-template-rows: 1fr 3fr;
+    justify-content: baseline; */
     padding: 10px 40px;
     gap: 30px;
 }
@@ -58,7 +64,7 @@ body {
 
 .user-panel {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 15px;
 }
 
@@ -68,9 +74,9 @@ body {
 
 .user-panel > * {
     background-color: var(--user-panel-bg);
-    padding: 15px 20px;
+    padding: var(--cards-padding);
     box-shadow: var(--cards-shadow);
-    border-radius: 10px;
+    border-radius: var(--cards-border-radius);
 }
 
 .user-panel .user-profile {
@@ -213,6 +219,7 @@ input[type="radio"]:checked::before {
 }
 
 .quote-container .quote {
+    flex: 1;
     display: grid;
     place-content: center;
     padding: 0.3rem;
@@ -238,18 +245,33 @@ input[type="radio"]:checked::before {
 }
 
 .books-dashboard {
-    background-color: var(--subtle-white);
+    background-color: var(--cards-bg);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 20px;
+    padding: var(--cards-padding);
+    border-radius: 10px;
+    box-shadow: var(--cards-shadow);
 }
 
 .books-dashboard .book {
-    background-color: white;
-    border-left: 5px solid yellow;
-    padding: 20px 40px;
+    background-color: var(--secondary);
+    color: var(--text);
+    border-left: 5px solid var(--accent);
+    padding: var(--cards-padding);
+    border-radius: var(--cards-border-radius);
 
     display: grid;
+    gap: 4px;
+}
+
+.book .card-info-container {
+    display: flex;
+    gap: 6px;
+}
+
+.book .card-label {
+    font-weight: bold;
 }
 
 .book .deleteButton {

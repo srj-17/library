@@ -55,7 +55,6 @@ function displayBooks() {
     booksDashboard = newBookDashboard;
 
     myLibrary.forEach((book) => {
-
         // rn adds on top of those books (redundancy) 
         let bookCard = document.createElement('div');
         bookCard.classList.toggle('book');

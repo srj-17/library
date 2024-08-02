@@ -1,6 +1,8 @@
 const myLibrary = [];
-const booksDashboard = document.querySelector('.books-dashboard');
-const deleteButtons = Array.from(document.querySelectorAll('.deleteButton'));
+const container = document.querySelector('.container');
+// container and deleteButtons changes later
+let booksDashboard = document.querySelector('.books-dashboard');
+let deleteButtons = Array.from(document.querySelectorAll('.deleteButton'));
 const formDialog = document.querySelector('.form-dialog');
 const newBookButton = document.querySelector('.new-book'); 
 const cancelDialogButton = formDialog.querySelector('.cancel'); 
@@ -31,17 +33,29 @@ function addBook(title, author, pages, read) {
     myLibrary.push(newBook);
 };
 
-
 // delete book
-function deleteBook(event) {
-    if (event.target in deleteButtons) {
-        
+function deleteBook(index) {
+    if (index > -1) {
+        // remove the book from the library array
+        myLibrary.splice(index, 1); 
+        // container.removeChild(booksDashboard);
+
+        // display the remaining elements in the array to the booksDashboard
+        console.log(myLibrary);
+        displayBooks()
     }
 }
 
 function displayBooks() {
+    // clear the screen first, because previous books are also displaying and this function
+    // replace the book dashboard with an empty dashboard
+    newBookDashboard = document.createElement('div');
+    container.replaceChild(newBookDashboard, booksDashboard);
+    newBookDashboard.classList.toggle('books-dashboard');
+    booksDashboard = newBookDashboard;
+
     myLibrary.forEach((book) => {
-        // clear the screen first, because previous books are also displaying and this function
+
         // rn adds on top of those books (redundancy) 
         let bookCard = document.createElement('div');
         bookCard.classList.toggle('book');
@@ -53,12 +67,13 @@ function displayBooks() {
                             <div class="read">Read: ${book.read ? 'read' : 'not read'} </div>`;
         
         booksDashboard.appendChild(bookCard);
-                            
-        // add a delete button to each book
+        
+        // add a delete button to each book whose id = the index of book
         deleteButtonContainer = document.createElement('div');
         deleteButtonContainer.classList.toggle('delete');
-        deleteButton = document.createElement('button');
+        let deleteButton = document.createElement('button');
         deleteButton.classList.toggle('deleteButton');
+        deleteButton.setAttribute('id', `${myLibrary.indexOf(book)}`);
         deleteButton.textContent = 'Delete Book';
         deleteButtonContainer.appendChild(deleteButton);
         bookCard.appendChild(deleteButtonContainer);
@@ -67,7 +82,7 @@ function displayBooks() {
 
 // delete book button handler
 booksDashboard.addEventListener('click', (e) => {
-    deleteBook(e);
+    deleteBook(+ e.target.getAttribute('id'));
 });
 
 // dialog

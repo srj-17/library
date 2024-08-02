@@ -44,6 +44,16 @@ function deleteBook(index) {
     }
 }
 
+// mark the book as read
+function readBook(index) {
+    if (+ index > -1) {
+        let book = myLibrary.at(index);
+        book.read = true;
+
+        displayBooks();
+    }
+}
+
 // clear the dashboard
 function clearBookDashboard() {
     let bookCards = Array.from(document.querySelectorAll('.book'));
@@ -80,12 +90,13 @@ function displayBooks() {
         deleteButton.classList.toggle('deleteButton');
         deleteButton.textContent = 'Delete Book';
         buttonContainer.appendChild(deleteButton);
-        bookCard.appendChild(deleteButtonContainer);
+        bookCard.appendChild(buttonContainer);
 
         // add a read button to each book whose id = the index of book
+        let readButton = document.createElement('button');
         readButton.setAttribute('id', `${myLibrary.indexOf(book)}`);
         readButton.textContent = 'Mark Read';
-        buttonContainer.appendChild(deleteButton);
+        buttonContainer.appendChild(readButton);
         
         bookCard.appendChild(buttonContainer);
     });

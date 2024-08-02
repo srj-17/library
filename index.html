@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <title>Library</title>
 </head>
 <body>
     <div class="container">
@@ -15,26 +18,29 @@
         </div>
         <div class="user-panel">
             <div class="user-profile">
-                <div class="name-container profile-item">
+                <div class="user-profile-header title">
+                    User Profile
+                </div>
+                <div class="name-container profile-info-container profile-item">
                     <div class="name-title title">Name: </div>
-                    <div class="name">Saugat Rijal</div>
+                    <div class="name profile-info-content">Saugat Rijal</div>
                 </div>
-                <div class="books-read-container profile-item">
+                <div class="books-read-container profile-info-container profile-item">
                     <div class="books-read-title title">Books Read: </div>
-                    <div class="books-read">None, go read some!</div>
+                    <div class="books-read profile-info-content">None, go read some!</div>
                 </div>
-                <div class="books-unread-container profile-item">
+                <div class="books-unread-container profile-info-container profile-item">
                     <div class="books-unread-title title">Books Left to Read: </div>
-                    <div class="books-unread">None, no books at all!</div>
+                    <div class="books-unread profile-info-content">None, no books at all!</div>
                 </div>
                 <div class="new-book-container">
-                    <button class="new-book">NEW BOOK</button>
+                    <button class="new-book profile-info-content">ADD NEW BOOK</button>
                 </div>
             </div>
             <div class="quote-container">
-                <div class="quote-title title">Favourite quote: </div>
+                <div class="quote-title title">Favourite quote</div>
                 <div class="quote">
-                    I'll take a potato chip, and eat it.
+                    "I'll take a potato chip, and eat it."
                 </div>
                 <div class="quotee">
                     -Light Yagami
@@ -43,31 +49,31 @@
             <dialog class="form-dialog">
                 <div class="utils">
                     <!-- can convert it to dialog later -->
-                    <form action="/" method="post">
-                        <div>
-                            <label for="title">Title: </label>
-                            <input type="text" name="title" id="title" placeholder="Title of book" autofocus>
+                    <form class="add-book-form" action="/" method="post">
+                        <div class="input-field">
+                            <label class="input-label" for="title">Title: <span aria-label="required">*</span></label>
+                            <input type="text" name="title" id="title" placeholder="Title of book" autofocus required>
                         </div>
-                        <div>
-                            <label for="author">Author: </label>
+                        <div class="input-field">
+                            <label class="input-label" for="author">Author: </label>
                             <input type="text" name="author" id="author" placeholder="Book author">
                         </div>
-                        <div>
-                            <label for="pages">Pages: </label>
-                            <input type="number" name="pages" id="pages" placeholder="No. of pages">
+                        <div class="input-field">
+                            <label class="input-label" for="pages">Pages: </label>
+                            <input type="number" name="pages" id="pages" placeholder="No. of pages" min="1">
                         </div>
-                        <fieldset class="read-status">
-                            <legend>Have you completed reading the book?</legend>
+                        <fieldset class="input-field read-status">
+                            <legend class="input-label">Have you completed reading the book?</legend>
                             <div>
                                 <input type="radio" name="read" value="read" id="read">
-                                <label for="read"> Yes</label>
+                                <label class="radio" for="read"> Yes</label>
                             </div>
                             <div>
                                 <input type="radio" name="read" id="not-read" value="not-read" checked>
-                                <label for="not-read"> No</label>
+                                <label class="radio" for="not-read"> No</label>
                             </div>
                         </fieldset>
-                        <div class="dialog-buttons">
+                        <div class="input-field dialog-buttons">
                             <button type="reset" class="cancel">Cancel</button>
                             <button type="submit" class="add">Add Book</button>
                         </div>

@@ -69,22 +69,36 @@ function displayBooks() {
                             <div class="read">Read: ${book.read ? 'read' : 'not read'} </div>`;
         
         booksDashboard.appendChild(bookCard);
+
+        // button container for add and delete
+        buttonContainer = document.createElement('div');
+        buttonContainer.classList.toggle('delete');
+        buttonContainer.setAttribute('id', `${myLibrary.indexOf(book)}`);
         
         // add a delete button to each book whose id = the index of book
-        deleteButtonContainer = document.createElement('div');
-        deleteButtonContainer.classList.toggle('delete');
         let deleteButton = document.createElement('button');
         deleteButton.classList.toggle('deleteButton');
-        deleteButton.setAttribute('id', `${myLibrary.indexOf(book)}`);
         deleteButton.textContent = 'Delete Book';
-        deleteButtonContainer.appendChild(deleteButton);
+        buttonContainer.appendChild(deleteButton);
         bookCard.appendChild(deleteButtonContainer);
+
+        // add a read button to each book whose id = the index of book
+        readButton.setAttribute('id', `${myLibrary.indexOf(book)}`);
+        readButton.textContent = 'Mark Read';
+        buttonContainer.appendChild(deleteButton);
+        
+        bookCard.appendChild(buttonContainer);
     });
 };
 
 // delete book button handler
 booksDashboard.addEventListener('click', (e) => {
-    deleteBook(e.target.getAttribute('id'));
+    parent = e.target.parentElement;
+    if (e.target.getAttribute('class') === 'deleteButton') {
+        deleteBook(parent.getAttribute('id'));
+    } else {
+        readBook(parent.getAttribute('id'));
+    }
 });
 
 // dialog

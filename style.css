@@ -160,6 +160,30 @@ span[aria-label="required"] {
     font-style: italic;
 }
 
+input[type="radio"] {
+    appearance: none;
+    position: relative;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    vertical-align: -2px;
+}
+  
+input[type="radio"]::before {
+    content: "✔";
+    color: var(--accent);
+    position: absolute;
+    font-size: 1.1em;
+    right: -0.1px;
+    top: -0.1rem;
+    visibility: hidden;
+}
+  
+input[type="radio"]:checked::before {
+    /* visibility instead of totally generating the content here to avoid recalculating layout */
+    visibility: visible;
+}
+  
 .add-book-form > .dialog-buttons {
     grid-template-columns: 1fr 1fr;
     gap: 10px;

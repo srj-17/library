@@ -10,6 +10,8 @@ const title = formDialog.querySelector('#title');
 const author = formDialog.querySelector('#author');
 const pages = formDialog.querySelector('#pages');
 const form = formDialog.querySelector('form');
+const booksRead = document.querySelector('.books-read');
+const booksUnRead = document.querySelector('.books-unread');
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -53,6 +55,30 @@ function readBook(index) {
         displayBooks();
     }
 }
+
+// update books read (each time the displayBooks() is triggered)
+function updateBooksRead() {
+    let alreadyRead = myLibrary.filter((book) => book.read);
+    alreadyRead = alreadyRead.map((book) => book.title);
+
+    // only run this if the array is not empty
+    if (alreadyRead.toString()) {
+        booksRead.textContent = alreadyRead.join(', ');
+    } else {
+        booksRead.textContent = 'None, go read some!'
+    }
+}
+
+// update books read (each time the displayBooks() is triggered)
+function updateBooksUnRead() {
+    let unRead = myLibrary.filter((book) => !book.read);
+    unRead = unRead.map((book) => book.title);
+    if (unRead.toString()) {
+        booksUnRead.textContent = unRead.join(', ');
+    } else {
+        booksUnRead.textContent = 'None, no books at all!'
+    }
+} 
 
 // clear the dashboard
 function clearBookDashboard() {
@@ -99,6 +125,10 @@ function displayBooks() {
         buttonContainer.appendChild(readButton);
         
         bookCard.appendChild(buttonContainer);
+
+        // update books read and unread list in the user profile
+        updateBooksRead();
+        updateBooksUnRead();
     });
 };
 

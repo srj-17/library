@@ -25,6 +25,20 @@ function Book(title, author, pages, read) {
     }
 };
 
+// add book
+function addBook(title, author, pages, read) {
+    let newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook);
+};
+
+
+// delete book
+function deleteBook(event) {
+    if (event.target in deleteButtons) {
+        
+    }
+}
+
 function displayBooks() {
     myLibrary.forEach((book) => {
         // clear the screen first, because previous books are also displaying and this function
@@ -51,19 +65,7 @@ function displayBooks() {
     });
 };
 
-// add book
-function addBook(title, author, pages, read) {
-    let newBook = new Book(title, author, pages, read);
-    myLibrary.push(newBook);
-};
-
-// delete book
-function deleteBook(event) {
-    if (event.target in deleteButtons) {
-        // TODO
-    }
-}
-
+// delete book button handler
 booksDashboard.addEventListener('click', (e) => {
     deleteBook(e);
 });
@@ -91,5 +93,4 @@ addBookDialogButton.addEventListener('click', (event) => {
     form.reset();
     formDialog.close();
     displayBooks();
-    // TODO: clear the form after cancel because rn, it just stays in the same state
 })
